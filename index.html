@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"> <!-- Font Awesome for Icons -->
+    
+    <style>
+        h1, p {
+            color: black;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px 0;
+        }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 24px;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+        .social-icons a:hover {
+            color: #00bcd4;
+        }
+    </style>
+</head>
+<body>
+    <div class="background-effect"></div>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">MyPortfolio</div>
+            <div class="menu-toggle">☰</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero-section">
+        <h1>Hi, I'm Kishore A</h1>
+        <p>Hi, I am Kishore A, also known as Astryx Kishore, an AI Developer based in Thanjavur...</p>
+        <a href="#projects" class="btn">View My Work</a>
+    </section>
+
+    <section id="about" class="about-section">
+        <h2>About Me</h2>
+        <img src="profile.jpg" alt="Kishore's Profile Picture" class="profile-image">
+        <p>I'm a passionate developer with a knack for building modern, responsive web applications...</p>
+    </section>
+
+    <section id="services" class="services-section">
+        <h2>What I Do</h2>
+        <div class="service-card">
+            <h3>Web Development</h3>
+            <p>Building responsive and user-friendly websites.</p>
+        </div>
+        <div class="service-card">
+            <h3>UI/UX Design</h3>
+            <p>Designing sleek and intuitive user interfaces.</p>
+        </div>
+        <div class="service-card">
+            <h3>SEO Optimization</h3>
+            <p>Optimizing websites for better search engine ranking.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>Project One</h3>
+            <p>A web app that helps manage tasks efficiently.</p>
+            <a href="#">View Project</a>
+        </div>
+        <div class="project-card">
+            <h3>Project Two</h3>
+            <p>A portfolio website showcasing creative work.</p>
+            <a href="#">View Project</a>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p class="clr">&copy; 2024 My Portfolio, Designed By Astryx</p>
+        
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+            <a href="https://www.instagram.com/_mr_calm_0_8_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/Kishoreanna2005" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com/in/YOUR_USERNAME" target="_blank"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth Scroll Effect
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                document.querySelector(targetId).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Sticky Navbar on Scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+
+        // Responsive Navbar Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinksContainer = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+        });
+
+        // Form Submission Feedback
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            form.reset();
+        });
+    </script>
+</body>
+</html>
